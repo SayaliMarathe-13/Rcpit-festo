@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, greenyellow, dodgerblue);
+            font-family: "Sansita Swashed", cursive;
+        }
+        /* Additional styles for events.ejs */
+        .event-container {
+            width: 60%;
+            margin-top: 100px; /* Increased margin-top for space */
+            padding: 20px; /* Adjusted padding for container */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .add-event-btn-container {
+            position: absolute;
+            top: 20px; /* Adjust the top position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .add-event-btn {
+            padding: 10px 20px;
+            background: dodgerblue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+        }
+        .add-event-btn:hover {
+            background-color: #2980b9;
+        }
+        .event {
+            position: relative;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            width: calc(100% - 40px); /* Adjust width to consider padding */
+            box-sizing: border-box;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .event-section {
+            margin-bottom: 15px;
+        }
+        .event-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .event-section input[type="text"],
+        .event-section input[type="date"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .event-delete {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="add-event-btn-container">
+        <a href="/create_event"><button class="add-event-btn">Add Event</button></a>
+    </div>
+    <% EventArr.forEach((event) => { %>
+        <div class="event-container">
+            <div class="event-section">
+                <label class="section-title">Event Name:</label>
+                <h4><%= event.eventName %></h4>
+            </div>
+            <div class="event-section">
+                <label class="section-title">Event Description:</label>
+                <h4><%= event.eventDescription %></h4>
+            </div>
+            <div class="event-section">
+                <label class="section-title">Club Name:</label>
+                <h4><%= event.clubName %></h4>
+            </div>
+            <div class="event-section">
+                <label class="section-title">Schedule Date:</label>
+                <h4><%= event.scheduleDate %></h4>
+            </div>
+            <!-- Delete Button -->
+            <form action="" method="">
+                <button class="event-delete" type="submit">Delete</button>
+            </form>
+        </div>
+    <% }); %>
+</body>
+</html>
