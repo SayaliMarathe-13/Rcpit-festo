@@ -1,58 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-          <img src="logo.png" alt="Logo">
-        </div>
-        <div class="nav-links">
-          <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/upcoming">Upcoming Events</a></li>
-            <li><a href="/contact">Contact us</a></li>
-            <li><a href="/login" class="login-link">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-</body>
-<style>
+  <style>
+        .main-header{
+    height: 80px;
+    width: 100%;
     
-  .navbar {
+    background-color:transparent;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+    font-size: larger;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f5f5f5;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .logo img {
-    max-height: 40px; /* Adjust the logo height as needed */
-  }
-
-  .nav-links ul {
-    list-style: none;
+}
+.logo{
+    height: 50px;
+    width: 200px;
+    
     display: flex;
-  }
+   
+    margin-right:475px;
+    padding-right: 10px;
+    justify-content:center; 
+    align-items: center; 
+}
+#festo-logo{
+    display:inline-block;
+    color: white;
+    margin-left:0px;
+    
+}
 
-  .nav-links li {
-    margin-right: 20px;
-  }
+#logoname{
+    display: inline-block;
+    color:white;
+    
+    
+}
+.nav-bar{
+    height: 50px;
+    width: 800px;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content:space-evenly; 
+    align-items: center;
+}
+.login-button {
+    transition-duration: 0.4s;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    font-weight: bolder;
+    border-radius: 8px;
+    background-color:white;
+    border-color: white;
+    color:black;
 
-  .nav-links a {
+  }
+  
+.login-button:hover {
+    background-color:black; /* Green */
+    color: white;
+  }
+  a{
     text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
+    color:white;
+    font-weight: bold;
+    padding: 5px 5px 5px 5px;
   }
+  #nav-links:hover {
+    /* border-width: 50px; */
+    border: 1px solid white;
+    border-radius: 5px;
+    }
 
-  .nav-links a:hover {
-    color: #007bff; /* Change color on hover */
-  }
-</style>
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+   
+  </style>
+  <header id="header">
+    <div class="main-header">
+     <div class="logo">
+        <i id="festo-logo" class="fa-solid fa-icons fa-bounce fa-2xl"></i>
+        <h1 id="logoname">RcpitFesto</h1>
+     </div>
+     <div class="nav-bar">
+        <a href="/home">Home</a>
+        <a href="/about">About Clubs</a></li>
+        <a href="/upcomming">Upcomming Events</a></li>
+        <a href="/contact">Contact us</a></li>
+        <a href="/login" class="login-link">Login</a></li>
+     </div>
+     </div>
+    </header>
+</body>
 </html>

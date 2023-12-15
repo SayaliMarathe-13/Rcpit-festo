@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+
+        body {
+
+            margin: 0;
+            padding: 0;
+            background-image: url("10.jpg");
+            overflow: hidden;
+            
+        }
+
+        .main-header{
+    height: 80px;
+    width: 100%;
+    
+    background-color:transparent;
+    display: flex;
+    justify-content:space-between;
+    font-size: larger;
+    align-items: center;
+}
+.logo{
+    height: 50px;
+    width: 200px;
+    
+    display: flex;
+   
+    margin-right:475px;
+    padding-right: 10px;
+    justify-content:center; 
+    align-items: center; 
+}
+#festo-logo{
+    display:inline-block;
+    color: white;
+    margin-left:0px;
+    
+}
+
+#logoname{
+    display: inline-block;
+    color:white;
+    
+    
+}
+.nav-bar{
+    height: 50px;
+    width: 800px;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content:space-evenly; 
+    align-items: center;
+}
+.login-button {
+    transition-duration: 0.4s;
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    align-items: center;
+    font-weight: bolder;
+    border-radius: 8px;
+    background-color:white;
+    border-color: white;
+    color:black;
+
+  }
+  
+.login-button:hover {
+    background-color:black; /* Green */
+    color: white;
+  }
+  a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    padding: 5px 5px 5px 5px;
+  }
+  #nav-links:hover {
+    /* border-width: 50px; */
+    border: 1px solid white;
+    border-radius: 5px;
+    }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .contact-row {
+            display: flex;
+            border-bottom: 1px solid #eee;
+        }
+
+        .contact-box {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .contact-box i {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #af4c7d;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .links{
+           text-decoration: none;
+           color: rgb(76, 47, 79);
+           font-weight: bolder;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, greenyellow, dodgerblue);
+            font-family: "Sansita Swashed", cursive;
+        }
+        /* Additional styles for events.ejs */
+        .event-container {
+            width: 60%;
+            margin-top: 100px; /* Increased margin-top for space */
+            padding: 20px; /* Adjusted padding for container */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .add-event-btn-container {
+            position: absolute;
+            top: 20px; /* Adjust the top position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .add-event-btn {
+            padding: 10px 20px;
+            background: dodgerblue;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+        }
+        .add-event-btn:hover {
+            background-color: #2980b9;
+        }
+        .event {
+            position: relative;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            width: calc(100% - 40px); /* Adjust width to consider padding */
+            box-sizing: border-box;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .event-section {
+            margin-bottom: 15px;
+        }
+        .event-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .event-section input[type="text"],
+        .event-section input[type="date"] {
+            width: calc(100% - 10px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .event-delete {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body><div class="add-event-btn-container"></div>
+    <header id="header">
+        <div class="main-header">
+         <div class="logo">
+            <i id="festo-logo" class="fa-solid fa-icons fa-bounce fa-2xl"></i>
+            <h1 id="logoname">RcpitFesto</h1>
+         </div>
+         <div class="nav-bar">
+            <a href="/home">Home</a>
+            <a href="/about">About Clubs</a></li>
+            <a href="/upcomming">Upcomming Events</a></li>
+            <a href="/contact">Contact us</a></li>
+            <a href="/login" class="login-link">Login</a></li>
+         </div>
+         </div>
+        </header>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+
+        <div class="contact-row">
+            <div class="contact-box">
+                <i class="fas fa-envelope"></i>
+                <div class="contact-info">
+                    <p>Email:</p>
+                    <p>example@example.com</p>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-info">
+                    <p>Address:</p>
+                    <p>Nimzari Naka, Shirpur , India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-box">
+                <i class="fas fa-phone"></i>
+                <div class="contact-info">
+                    <p>Phone:</p>
+                    <p>+123 456 7890</p>
+                </div>
+            </div>
+
+            <div class="contact-box">
+                <i class="fab fa-linkedin"></i>
+                <div class="contact-info">
+                    <p>LinkedIn:</p>
+                    <p>linkedin.com/in/example</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-row">
+            <div class="contact-box">
+                
+                <div class="contact-info">
+                    <a href="" class="links" >GDSC</a>
+                </div>
+            </div>
+
+            <div class="contact-box">
+              
+                <div class="contact-info">
+                    <a href="" class="links">AKATSUKI</a>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="contact-box">
+              
+                <div class="contact-info">
+                    <a href="" class="links">REFLECTION</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,117 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Upcoming Events Page</title>
-  <link rel="stylesheet" href="styles.css">
- 
+    <meta charset="UTF-8">
+    <title>Upcoming Events Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-<%-include('navbar.ejs')%>
-  <% EventArr.forEach((event) => { %>
-    <div class="event-container">
-        <div class="event-section">
-            <label class="section-title">Event Name:</label>
-            <h4><%= event.eventName %></h4>
-        </div>
-        <div class="event-section">
-            <label class="section-title">Event Description:</label>
-            <h4><%= event.eventDescription %></h4>
-        </div>
-        <div class="event-section">
-            <label class="section-title">Club Name:</label>
-            <h4><%= event.clubName %></h4>
-        </div>
-        <div class="event-section">
-            <label class="section-title">Schedule Date:</label>
-            <h4><%= event.scheduleDate %></h4>
-        </div>
-        
+    <% include('navbar.ejs') %>
+
+    <div class="container">
+        <table class="event-table">
+            <thead>
+                <tr>
+                    <th>Event Name</th>
+                    <th>Event Description</th>
+                    <th>Club Name</th>
+                    <th>Schedule Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% EventArr.forEach((event) => { %>
+                    <tr>
+                        <td class="event-name"><%= event.eventName %></td>
+                        <td class="event-description"><%= event.eventDescription %></td>
+                        <td class="club-name"><%= event.clubName %></td>
+                        <td class="schedule-date"><%= event.scheduleDate %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
     </div>
-  <% }); %>
-</body>
-<style>
-  
+
+    <style>
+        html,
         body {
+            height: 100%;
             margin: 0;
-            padding: 0;
+            font-family: sans-serif;
+            font-weight: 100;
+            background-color:   rgb(19, 20, 19);
+            color: #fff; /* Text color for the body */
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(45deg, greenyellow, dodgerblue);
-            font-family: "Sansita Swashed", cursive;
+            justify-content: center;
+            align-items: flex-start;
         }
-        /* Additional styles for events.ejs */
-        .event-container {
-            width: 60%;
-            margin-top: 100px; /* Increased margin-top for space */
-            padding: 20px; /* Adjusted padding for container */
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .container {
+            margin-top: 50px; /* Adjust this value as needed */
+        }
+
+        table.event-table {
+            width: 800px;
+            border-collapse: collapse;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background-color: #111; /* Darker background for the table */
+            color: #fff; /* Text color for the table */
+        }
+
+        th,
+        td {
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            text-align: left;
+            background-color: #222; /* Darker background for the headers */
+            color: #fff; /* Header text color */
+        }
+
+        tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        tbody td {
             position: relative;
         }
-        .add-event-btn-container {
+
+        tbody td:hover:before {
+            content: "";
             position: absolute;
-            top: 20px; /* Adjust the top position as needed */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
+            left: 0;
+            right: 0;
+            top: -9999px;
+            bottom: -9999px;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
         }
-        .add-event-btn {
-            padding: 10px 20px;
-            background: dodgerblue;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-size: 1em;
-        }
-        .add-event-btn:hover {
-            background-color: #2980b9;
-        }
-        .event {
-            position: relative;
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            width: calc(100% - 40px); /* Adjust width to consider padding */
-            box-sizing: border-box;
-        }
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .event-section {
-            margin-bottom: 15px;
-        }
-        .event-section label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .event-section input[type="text"],
-        .event-section input[type="date"] {
-            width: calc(100% - 10px);
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .event-delete {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 5px;
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    
-</style>
+    </style>
+</body>
 </html>

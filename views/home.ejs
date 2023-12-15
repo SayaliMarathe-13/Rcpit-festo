@@ -1,117 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <title>RCPIT-Festo</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="script" href="source.js"> -->
+    <title>Document</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+/* 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+    color: #fff;
+    font-size:10px;
+} */
 
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/venobox/venobox.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-
-    <div class="container">
-      <nav class="navbar">
-        <div class="logo">
-          <img src="logo.png" alt="Logo">
-        </div>
-        <div class="nav-links">
-          <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/upcomming">upcomming events</a></li>
-            <li><a href="/contact">Contact us</a></li>
-            <li><a href="/login" class="login-link">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-        <img src="./img/rcpit.jpg" alt="Logo" title="RCPIT-Festo">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      
-    </div>
-  </nav>
-
-  <!-- jQuery, Bootstrap JS, and Other Scripts -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-<style>
-  /* Reset default margin and padding for better consistency */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html,body{
+    background-image: url('./img/smoke.gif');
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
 }
 
-body {
-  font-family: Arial, sans-serif;
+.center-div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 92vh;
+    width: 100%;
+    /* border: 2px solid black; */
+    flex-direction: column;
+
+    
+}
+.outer-div{
+    display:inline-block;
+    
+    
+}
+.welcome-text{
+    display: inline-block;
+    padding-bottom: 10vh;
+    /* border: 2px solid black; */
+     color:white;
+     font-size: 4vw;
+     font-weight: bolder;
+    
+     
+} 
+
+.see-more-btn{
+    display: inline-block;
+    height: 50px;
+    width: 150px;
+    border-radius: 20px;
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    border: 2px solid white;
+    opacity: 0.9;
+    background-color: transparent;
+    margin-top: 30px;
 }
 
-.navbar {
+
+/* time and date  */
+
+
+.container-time{
+  font-family: "Lato", sans-serif;
+  background: transparent;
+  color: #ffd868;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #f5f5f5;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 15vh;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 
-.logo img {
-  max-height: 40px; /* Adjust the logo height as needed */
+.display-date {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  /* font-weight: 600; */
 }
 
-.nav-links ul {
-  list-style: none;
+.display-time {
   display: flex;
-}
-
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
+  font-size: 3rem;
   font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #007bff; /* Change color on hover */
-}
-/* CSS for the login button */
-.login-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
+  
   border-radius: 5px;
+  transition: ease-in-out 0.1s;
+  transition-property: background, box-shadow, color;
+  -webkit-box-reflect: below 2px
+linear-gradient(transparent, rgba(255, 255, 255, 0.05));
+width: 150px;
+align-items: center;
+justify-content: center;
+}
+
+.display-time:hover {
+  background: #ffd868;
+  box-shadow: 0 0 30px#ffd868;
+  color: #272727;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.login-btn:hover {
-  background-color: #2980b9;
+    </style>
+</head>
+<body>
+  <%- include('navbar.ejs')%>
+    <div class="home">
+ 
+    <div class="center-div">
+        <div class="welcome-text">
+                Welocome To RcpitFesto
+        </div>
+        <div class="container-time">
+                <div class="display-date">
+                  <span id="day">day</span>,
+                  <span id="daynum">00</span>
+                  <span id="month">month</span>
+                  <span id="year">0000</span>
+                </div>
+                <div class="display-time"></div>
+              </div>
+        <button class="see-more-btn">
+                see more
+        </button>
+    </div>
+    <script>
+        const displayTime = document.querySelector(".display-time");
+// Time
+function showTime() {
+  let time = new Date();
+  displayTime.innerText = time.toLocaleTimeString("en-US", { hour12: false });
+  setTimeout(showTime, 1000);
 }
 
-</style>
+showTime();
+
+// Date
+function updateDate() {
+  let today = new Date();
+
+  // return number
+  let dayName = today.getDay(),
+    dayNum = today.getDate(),
+    month = today.getMonth(),
+    year = today.getFullYear();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const dayWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  // value -> ID of the html element
+  const IDCollection = ["day", "daynum", "month", "year"];
+  // return value array with number as a index
+  const val = [dayWeek[dayName], dayNum, months[month], year];
+  for (let i = 0; i < IDCollection.length; i++) {
+    document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+  }
+}
+
+updateDate();
+
+        
+    </script>
+</body>
 </html>

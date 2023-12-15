@@ -3,23 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About us</title>
+  <title>About us</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="logo.png" alt="Logo">
-    </div>
-    <div class="nav-links">
-      <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/upcomming">upcomming events</a></li>
-        <li><a href="/contact">Contact us</a></li>
-        <li><a href="/login" class="login-link">Login</a></li>
-      </ul>
-    </div>
-  </nav>
+ <%- include('navbar.ejs')%>
   <section id="AboutClubs" class="section-with-bg wow fadeInUp">
     <div class="container">
       <div class="section-header">
@@ -31,7 +18,7 @@
             <div class="hotel-img">
               <img src="./img/akat2.webp" class="img-fluid">
             </div>
-            <h3><a href="#">Akatsuki</a></h3>
+            <h3 style="font-size:30px; "><a style="color:#2980b9;" href="https://akatsuki-official.onrender.com/index.html#">Akatsuki</a></h3>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
@@ -39,7 +26,7 @@
             <div class="hotel-img">
               <img src="./img/gdsc.webp" class="img-fluid">
             </div>
-            <h3><a href="#">GDSC</a></h3>
+            <h3 style="font-size:30px;"><a style="color:#2980b9;" href="https://gdsc.community.dev/r-c-patel-institute-of-technology-shirpur/">GDSC</a></h3>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
@@ -47,7 +34,7 @@
             <div class="hotel-img">
               <img src="./img/relection.webp" class="img-fluid">
             </div>
-            <h3><a href="#">Reflection</a></h3>
+            <h3 style="font-size:30px;"><a style="color:#2980b9;" href="https://www.rcpit.ac.in/activity/annual-gathering-reflection-2020">Reflection</a></h3>
           </div>
         </div>
       </div>
@@ -69,42 +56,10 @@ body {
   padding: 0;
 }
 
-/* Navbar styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #f5f5f5;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo img {
-  max-height: 40px; /* Adjust the logo height as needed */
-}
-
-.nav-links ul {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-right: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #007bff; /* Change color on hover */
-}
 
 /* Section styles */
 .section-with-bg {
-  background-color: #f8f8f8;
+ 
   padding: 50px 0;
 }
 
@@ -112,9 +67,11 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
+  background-color: transparent;
 }
 
 .section-header {
+  margin-top: 60px;
   text-align: center;
   margin-bottom: 40px;
 }
@@ -150,12 +107,99 @@ h3 {
 
 a {
   text-decoration: none;
-  color: #007bff;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+
+
+
+
+
+  
+  body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(45deg, greenyellow, dodgerblue);
+      font-family: "Sansita Swashed", cursive;
+  }
+  /* Additional styles for events.ejs */
+  .event-container {
+      width: 60%;
+      margin-top: 100px; /* Increased margin-top for space */
+      padding: 20px; /* Adjusted padding for container */
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+  }
+  .add-event-btn-container {
+      position: absolute;
+      top: 20px; /* Adjust the top position as needed */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+  }
+  .add-event-btn {
+      padding: 10px 20px;
+      background: dodgerblue;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: 1em;
+  }
+  .add-event-btn:hover {
+      background-color: #2980b9;
+  }
+  .event {
+      position: relative;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 8px;
+      width: calc(100% - 40px); /* Adjust width to consider padding */
+      box-sizing: border-box;
+  }
+  .section-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+  }
+  .event-section {
+      margin-bottom: 15px;
+  }
+  .event-section label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  .event-section input[type="text"],
+  .event-section input[type="date"] {
+      width: calc(100% - 10px);
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+  }
+  .event-delete {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+  }
+
 </style>
+
+
 </html>
