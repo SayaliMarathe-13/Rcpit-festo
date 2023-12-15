@@ -33,10 +33,13 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.render("home");
 });
+
 app.get('/home', (req, res) => {
     res.render("home");
 });
-
+app.get('/contact', (req, res) => {
+    res.render("contact");
+});
 app.get('/about', (req, res) => {
     res.render("about");
 });
@@ -154,6 +157,25 @@ app.post('/create_event', async (req, res) => {
         res.status(500).json({ success: false, error: 'Error saving event data' });
     }
 });
+app.delete('/events/:id', async (req, res) => {
+    try {
+        const db = await connectToDatabase();
+        const coll = db.collection('events');
+        const eventId = req.params.id;
+
+        const deleteResult = await coll.deleteOne({ _id: ObjectId(eventId) });
+
+        if (deleteResult.deletedCount === 1) {
+            res.status(204).end(); 
+        } else {
+            res.status(404).json({ error: 'Event not found' });
+            
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error deleting event' }); // Server error
+    }
+});
+
 
 
 
