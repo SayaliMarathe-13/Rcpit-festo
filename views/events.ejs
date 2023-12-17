@@ -92,7 +92,7 @@
     <div class="add-event-btn-container">
         <a href="/create_event"><button class="add-event-btn">Add Event</button></a>
     </div>
-    <% EventArr.forEach((event) => { %>
+    <% EventArr.reverse().forEach((event) => { %>
         <div class="event-container">
             <div class="event-section">
                 <label class="section-title">Event Name:</label>
@@ -110,32 +110,33 @@
                 <label class="section-title">Schedule Date:</label>
                 <h4><%= event.scheduleDate %></h4>
             </div>
-           
+            <!-- <form id="deleteForm<%= event._id %>" onsubmit="return confirmDelete('<%= event._id %>')">
+                 <input type="hidden" name="eventId" value="<%= event._id %>"> 
+                <button type="submit" class="event-delete">Delete</button>
+            </form> -->
+            <button class="event-delete" onclick="confirmDelete('<%= event._id %>')">Delete</button>
             
-                <button class="event-delete" onclick="DeleteEvent('<%=event._id%>')">Delete</button>
-      
         </div>
     <% }); %>
     <script>
-        function DeleteEvent(eventId) {
-    if (confirm("Are you sure you want to delete this event?")) {
-        fetch(`/events/${eventId}`, {
-                method: 'DELETE'
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log("Event deleted successfully");
-                } else {
-                    console.log(`Error deleting event: ${response.status} - ${response.statusText}`);
-                    console.log(eventId)
-                }
-            })
-            .catch(error => {
-                console.error('Fetch Error:', error);
-            });
-    }
-}
+        function confirmDelete(eventId) {
+            if (confirm("Are you sure you want to delete this event?")) {
+                fetch(`/events/${eventId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        console.log("Event deleted successfully");
+                        window.location.href = "/events";
+                    } else {
+                        console.log(`Error deleting event: ${response.status} - ${response.statusText}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                });
+            }
+        }
     </script>
-    
 </body>
 </html>
