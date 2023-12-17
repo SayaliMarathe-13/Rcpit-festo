@@ -163,26 +163,6 @@ app.post('/create_event', async (req, res) => {
         res.status(500).json({ success: false, error: 'Error saving event data' });
     }
 });
-// app.delete('/events/:id', async (req, res) => {
-//     try {
-//         const db = await connectToDatabase();
-//         const coll = db.collection('events');
-//         const eventId = req.params.id;
-//         console.log(eventId);
-
-//         const deleteResult = await coll.findOneAndDelete({ _id: eventId });
-
-//         if (deleteResult.deletedCount === 1) {
-//             res.status(204).end();
-//             res.redirect("/events");
-//         } else {
-//             res.status(404).json({ error: 'Event not found' });
-//         }
-         
-//     } catch (error) {
-//         res.status(500).json({ error: 'Error deleting event' }); // Server error
-//     }
-// });
 
 
 app.delete('/events/:eventId', async (req, res) => {

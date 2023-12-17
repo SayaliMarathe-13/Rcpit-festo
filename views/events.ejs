@@ -110,12 +110,7 @@
                 <label class="section-title">Schedule Date:</label>
                 <h4><%= event.scheduleDate %></h4>
             </div>
-            <!-- <form id="deleteForm<%= event._id %>" onsubmit="return confirmDelete('<%= event._id %>')">
-                 <input type="hidden" name="eventId" value="<%= event._id %>"> 
-                <button type="submit" class="event-delete">Delete</button>
-            </form> -->
             <button class="event-delete" onclick="confirmDelete('<%= event._id %>')">Delete</button>
-            
         </div>
     <% }); %>
     <script>
