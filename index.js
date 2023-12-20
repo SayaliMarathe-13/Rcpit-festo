@@ -3,28 +3,34 @@ const app = express();
 const mongoose=require('mongoose');
 const path = require("path");
 const Event = require("./models/EventModel");
+const { MongoClient, ObjectId } = require('mongodb'); 
 const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
+// const { MongoClient } = require('mongodb');
 const Admin = require("./models/AdminModel");
-const mongoURI = 'mongodb+srv://marathesayali2003:Sayali123@cluster1.mqlrftt.mongodb.net/?retryWrites=true&w=majority/Rcpit-festo';
+const mongoURI = 'mongodb+srv://marathesayali2003:Sayali123@cluster1.mqlrftt.mongodb.net/';
+const dbName = 'Rcpit-festo';
 let cachedDb = null;
 
 async function connectToDatabase() {
-  if (cachedDb) {
-    return cachedDb;
-  }
-  const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-  try {
-    await client.connect();
-    console.log('Database connected');
-    const db = client.db('Rcpit-festo');
-    cachedDb = db;
-    return cachedDb;
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    throw error;
-  }
+    if (cachedDb) {
+        return cachedDb;
+    }
+
+    const client = new MongoClient(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+    try {
+        await client.connect();
+        console.log('Database connected');
+
+        const db = client.db(dbName);
+        cachedDb = db; 
+        return cachedDb;
+    } catch (error) {
+        console.error('Error connecting to the database:', error);
+        throw error;
+    }
 }
+
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -157,22 +163,27 @@ app.post('/create_event', async (req, res) => {
         res.status(500).json({ success: false, error: 'Error saving event data' });
     }
 });
-app.delete('/events/:id', async (req, res) => {
+
+
+app.delete('/events/:eventId', async (req, res) => {
     try {
         const db = await connectToDatabase();
         const coll = db.collection('events');
-        const eventId = req.params.id;
 
-        const deleteResult = await coll.deleteOne({ _id: ObjectId(eventId) });
+        const eventId = req.params.eventId;
+
+        const deleteResult = await coll.deleteOne({ _id: new ObjectId(eventId) });
 
         if (deleteResult.deletedCount === 1) {
-            res.status(204).end(); 
+            console.log("Event deleted successfully");
+            res.status(204).send();
         } else {
-            res.status(404).json({ error: 'Event not found' });
-            
+            console.log("Event not found");
+            res.status(404).send("Event not found");
         }
     } catch (error) {
-        res.status(500).json({ error: 'Error deleting event' }); // Server error
+        console.error('Error deleting event:', error);
+        res.status(500).send("Internal Server Error");
     }
 });
 

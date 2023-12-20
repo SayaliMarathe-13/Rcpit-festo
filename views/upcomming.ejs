@@ -5,9 +5,9 @@
     <title>Upcoming Events Page</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <% include('navbar.ejs') %>
 
+<body>
+    <%- include('navbar.ejs')%>
     <div class="container">
         <table class="event-table">
             <thead>
@@ -34,23 +34,20 @@
     <style>
         html,
         body {
-            height: 100%;
-            margin: 0;
             font-family: sans-serif;
             font-weight: 100;
-            background-color:   rgb(19, 20, 19);
-            color: #fff; /* Text color for the body */
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            background-color: rgb(19, 20, 19);
+            color: #fff;
         }
 
         .container {
-            margin-top: 50px; /* Adjust this value as needed */
+            margin-top: 140px; /* Adjust this value as needed */
         }
 
         table.event-table {
-            width: 800px;
+            width: 100%; /* Make the table width 100% of its container */
+            max-width: 1000px; /* Set maximum width for the table */
+            margin: 0 auto; /* Center the table horizontally */
             border-collapse: collapse;
             overflow: hidden;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
@@ -61,8 +58,9 @@
 
         th,
         td {
-            padding: 15px;
+            padding: 20px;
             background-color: rgba(255, 255, 255, 0.1);
+            font-size: 20px;
         }
 
         th {
