@@ -14,10 +14,10 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(45deg, greenyellow, dodgerblue);
+            background: linear-gradient(45deg, rgb(13, 14, 13), dodgerblue);
             font-family: "Sansita Swashed", cursive;
         }
-        /* Additional styles for events.ejs */
+   
         .event-container {
             width: 60%;
             margin-top: 100px; /* Increased margin-top for space */
@@ -79,12 +79,30 @@
             top: 90%;
             transform: translateY(-50%);
             right: 5px;
-            background-color: #e74c3c;
+            background-color: #e92914;
             color: white;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
+        }
+        .go-to-home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background:#e92914;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 1em;
+            z-index: 2;
+        }
+
+        .go-to-home-btn:hover {
+            background-color: #3fc31b;
         }
     </style>
 </head>
@@ -113,6 +131,8 @@
             <button class="event-delete" onclick="confirmDelete('<%= event._id %>')">Delete</button>
         </div>
     <% }); %>
+    <button class="go-to-home-btn" onclick="goToHome()">Go to Home</button>
+
     <script>
         function confirmDelete(eventId) {
             if (confirm("Are you sure you want to delete this event?")) {
@@ -131,6 +151,9 @@
                     console.error('Fetch Error:', error);
                 });
             }
+        }
+        function goToHome() {
+            window.location.href = "/"; // Replace "/" with your home page URL
         }
     </script>
 </body>
